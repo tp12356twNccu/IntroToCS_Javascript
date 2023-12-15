@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Number guessing</title>
+</head>
+<body>
+    <script>
+        var rand = Math.floor((Math.random() * 10) + 1);
+        var input = parseInt(window.prompt("Enter your guess"));
+        while(rand != input){
+            input = parseInt(window.prompt("Incorrect, enter another guess"));
+        }
+
+        document.writeln("<h1>Well done, the answer is " + rand + ".");
+        document.writeln("<h1>Press F5 to play again.")
+
+    </script>
+</body>
+</html>
