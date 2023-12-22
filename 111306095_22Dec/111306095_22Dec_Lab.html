@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            111306095_22Dec_Lab
+        </title>
+
+    </head>
+    <body>
+        <script>
+            function start(){
+                var button = document.getElementById("rollButton");
+                button.addEventListener("click", rollDice, false);
+                die1Image = document.getElementById("die1");
+                die2Image = document.getElementById("die2");
+                die3Image = document.getElementById("die3");
+                die4Image = document.getElementById("die4");
+                die5Image = document.getElementById("die5");
+                die6Image = document.getElementById("die6");
+                die7Image = document.getElementById("die7");
+                die8Image = document.getElementById("die8");
+                die9Image = document.getElementById("die9");
+                die10Image = document.getElementById("die10");
+                die11Image = document.getElementById("die11");
+                die12Image = document.getElementById("die12");
+            }
+
+            var frequencies = [0, 0, 0, 0, 0, 0];
+            function rollDice(){
+                setImage(die1Image);
+                setImage(die2Image);
+                setImage(die3Image);
+                setImage(die4Image);
+                setImage(die5Image);
+                setImage(die6Image);
+                setImage(die7Image);
+                setImage(die8Image);
+                setImage(die9Image);
+                setImage(die10Image);
+                setImage(die11Image);
+                setImage(die12Image);
+                updateFrequencyTable();
+            }
+
+            function setImage(dieImage){
+                var dieValue = Math.floor(1 + Math.random() * 6);
+                if(dieImage instanceof Element){
+                    dieImage.setAttribute("src", "die" + dieValue + ".png");
+                    dieImage.setAttribute("alt", "die image with" + dieValue + " spot(s) ");
+                }
+                frequencies[dieValue -1]++;
+                
+            }
+
+            function updateFrequencyTable(){
+                var tableCells = document.querySelectorAll('tbody td:nth-child(2)'); 
+                for (var i = 0; i < frequencies.length; i++) {
+                    tableCells[i].textContent = (frequencies[i] / 12 * 100).toFixed(2) ;
+                }
+                for(var i = 0; i < frequencies.length; i++){
+                    frequencies[i] = 0;
+                }
+            }
+            window.addEventListener("load", start, false);
+
+
+
+        </script>
+
+        <img id = "die1" src="die1.png" alt = "blank image">
+        <img id = "die2" src="die1.png" alt = "blank image">
+        <img id = "die3" src="die1.png" alt = "blank image">
+        <img id = "die4" src="die1.png" alt = "blank image">
+        <img id = "die5" src="die1.png" alt = "blank image">
+        <img id = "die6" src="die1.png" alt = "blank image">
+        <br>
+        <img id = "die7" src="die1.png" alt = "blank image">
+        <img id = "die8" src="die1.png" alt = "blank image">
+        <img id = "die9" src="die1.png" alt = "blank image">
+        <img id = "die10" src="die1.png" alt = "blank image">
+        <img id = "die11" src="die1.png" alt = "blank image">
+        <img id = "die12" src="die1.png" alt = "blank image">
+        <form action = "#">
+            <input id = "rollButton" type = "button" value = "Roll Dice">
+        </form>
+
+        <style>
+            table {
+                border-collapse: collapse; /* This ensures the borders collapse into a single line */
+                border: 1px solid black; /* Sets the border of the table to a black line */
+            }
+            thead {
+                background-color: darkblue;
+                color: white;
+            }
+            tbody tr {
+                background-color: lightblue;
+            }
+            th, td {
+                border: 1px solid black; /* Adds borders to th and td elements */
+                padding: 8px; /* Optional: Adds padding for better spacing */
+            }
+        </style>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Face</th>
+                    <th>Percent</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </body>
+
+
+
+
+
+</html>
